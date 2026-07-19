@@ -1,52 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>经典扫雷</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="game-container">
-        <!-- 难度控制栏与再玩一把按钮 -->
-        <div class="controls">
-            <select id="difficulty" class="glass-select">
-                <option value="level1">初出茅庐 (9x9, 10雷)</option>
-                <option value="level2">登堂入室 (12x12, 22雷)</option>
-                <option value="level3">炉火纯青 (16x16, 40雷)</option>
-                <option value="level4">登峰造极 (16x20, 60雷)</option>
-                <option value="level5">独孤求败 (16x30, 99雷)</option>
-            </select>
-        </div>
-
-        <!-- 游戏顶部的状态栏 -->
-        <div class="header">
-            <div class="counter-box" title="剩余地雷">
-                <span class="counter-icon">💣</span>
-                <div class="counter" id="mine-count">10</div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>经典扫雷</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="game-container">
+            <!-- 难度控制栏与再玩一把按钮 -->
+            <div class="controls">
+                <select id="difficulty" class="glass-select">
+                    <option value="level1">初出茅庐 (9x9, 10雷)</option>
+                    <option value="level2">登堂入室 (12x12, 22雷)</option>
+                    <option value="level3">炉火纯青 (16x16, 40雷)</option>
+                    <option value="level4">登峰造极 (16x20, 60雷)</option>
+                    <option value="level5">独孤求败 (16x30, 99雷)</option>
+                </select>
             </div>
-            <button class="restart-btn" id="restart-btn" title="重新开始">😊</button>
-            <div class="counter-box" title="用时">
-                <span class="counter-icon">⏱️</span>
-                <div class="counter" id="timer">000</div>
+
+            <!-- 游戏顶部的状态栏 -->
+            <div class="header">
+                <div class="counter-box" title="剩余地雷">
+                    <span class="counter-icon">💣</span>
+                    <div class="counter" id="mine-count">10</div>
+                </div>
+                <button class="restart-btn" id="restart-btn" title="重新开始">😊</button>
+                <div class="counter-box" title="用时">
+                    <span class="counter-icon">⏱️</span>
+                    <div class="counter" id="timer">000</div>
+                </div>
+            </div>
+
+            <!-- 游戏核心：地雷网格 -->
+            <div class="grid" id="grid">
+                <!-- 格子由 JavaScript 自动生成 -->
             </div>
         </div>
-        
-        <!-- 游戏核心：地雷网格 -->
-        <div class="grid" id="grid">
-            <!-- 格子由 JavaScript 自动生成 -->
-        </div>
-    </div>
 
-    <!-- 新增：自定义弹出层 (Modal) -->
-    <div id="result-modal" class="modal-overlay">
-        <div class="modal-content">
-            <h2 id="modal-title">游戏结束</h2>
-            <p id="modal-message">你踩到地雷了！</p>
-            <button id="modal-btn" class="glass-btn">再试一次</button>
+        <!-- 新增：自定义弹出层 (Modal) -->
+        <div id="result-modal" class="modal-overlay">
+            <div class="modal-content">
+                <h2 id="modal-title">游戏结束</h2>
+                <p id="modal-message">你踩到地雷了！</p>
+                <button id="modal-btn" class="glass-btn">再试一次</button>
+            </div>
         </div>
-    </div>
 
-    <script src="script.js"></script>
-</body>
+        <script src="script.js"></script>
+    </body>
 </html>

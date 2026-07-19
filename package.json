@@ -1,19 +1,19 @@
 {
-  "name": "grid-sweeper",
-  "version": "1.0.0",
-  "description": "Wuxia styled minimal Minesweeper",
-  "scripts": {
-    "lint:js": "eslint script.js",
-    "lint:css": "stylelint style.css",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "lint": "npm run format:check && npm run lint:js && npm run lint:css"
-  },
-  "devDependencies": {
-    "eslint": "^9.0.0",
-    "prettier": "^3.0.0",
-    "stylelint": "^16.0.0",
-    "stylelint-config-standard": "^36.0.0",
-    "globals": "^15.0.0"
-  }
+    "name": "grid-sweeper",
+    "version": "1.0.0",
+    "description": "Wuxia styled minimal Minesweeper",
+    "scripts": {
+        "lint:js": "eslint script.js",
+        "lint:css": "stylelint style.css",
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
+        "lint": "npm run format:check && npm run lint:js && npm run lint:css"
+    },
+    "devDependencies": {
+        "eslint": "^9.0.0",
+        "prettier": "^3.0.0",
+        "stylelint": "^16.0.0",
+        "stylelint-config-standard": "^36.0.0",
+        "globals": "^15.0.0"
+    }
 }

@@ -14,12 +14,22 @@ let ROWS = 9;
 let COLS = 9;
 let MINES_COUNT = 10;
 
-const NUM_COLORS = ['', '#3498db', '#2ecc71', '#e74c3c', '#9b59b6', '#f1c40f', '#e67e22', '#34495e', '#7f8c8d'];
+const NUM_COLORS = [
+    '',
+    '#3498db',
+    '#2ecc71',
+    '#e74c3c',
+    '#9b59b6',
+    '#f1c40f',
+    '#e67e22',
+    '#34495e',
+    '#7f8c8d'
+];
 
 let board = [];
 let isFirstClick = true;
 let isGameOver = false;
-let revealedCount = 0; 
+let revealedCount = 0;
 let timerInterval = null;
 let timeElapsed = 0;
 
@@ -42,15 +52,15 @@ function initGame() {
     resultModal.style.display = 'none';
 
     gridElement.style.gridTemplateColumns = `repeat(${COLS}, 30px)`;
-    gridElement.innerHTML = ''; 
+    gridElement.innerHTML = '';
     board = [];
     isFirstClick = true;
     isGameOver = false;
     revealedCount = 0;
-    
+
     restartBtn.textContent = '😊';
     mineCountElement.textContent = MINES_COUNT;
-    
+
     clearInterval(timerInterval);
     timeElapsed = 0;
     timerElement.textContent = '000';
@@ -163,9 +173,9 @@ function revealCell(r, c) {
 }
 
 function handleRightClick(e) {
-    e.preventDefault(); 
-    if (isGameOver || isFirstClick) return; 
-    
+    e.preventDefault();
+    if (isGameOver || isFirstClick) return;
+
     const cell = e.target;
     if (cell.classList.contains('revealed')) return;
 
@@ -194,7 +204,7 @@ function gameOver(win) {
     isGameOver = true;
     clearInterval(timerInterval);
     restartBtn.textContent = win ? '😎' : '😵';
-    
+
     // 延迟 500 毫秒弹出结果，让玩家看清棋盘上的炸弹
     setTimeout(() => {
         if (win) {
