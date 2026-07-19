@@ -3,9 +3,11 @@
 // =========================================
 
 const DIFFICULTIES = {
-    beginner: { rows: 9, cols: 9, mines: 10 },
-    intermediate: { rows: 16, cols: 16, mines: 40 },
-    expert: { rows: 16, cols: 30, mines: 99 }
+    level1: { rows: 9, cols: 9, mines: 10 },
+    level2: { rows: 12, cols: 12, mines: 22 },
+    level3: { rows: 16, cols: 16, mines: 40 },
+    level4: { rows: 16, cols: 20, mines: 60 },
+    level5: { rows: 16, cols: 30, mines: 99 }
 };
 
 let ROWS = 9;
