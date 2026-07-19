@@ -21,9 +21,15 @@
 
         <!-- 游戏顶部的状态栏 -->
         <div class="header">
-            <div class="counter" id="mine-count">10</div>
+            <div class="counter-box" title="剩余地雷">
+                <span class="counter-icon">💣</span>
+                <div class="counter" id="mine-count">10</div>
+            </div>
             <button class="restart-btn" id="restart-btn" title="重新开始">😊</button>
-            <div class="counter" id="timer">000</div>
+            <div class="counter-box" title="用时">
+                <span class="counter-icon">⏱️</span>
+                <div class="counter" id="timer">000</div>
+            </div>
         </div>
         
         <!-- 游戏核心：地雷网格 -->
