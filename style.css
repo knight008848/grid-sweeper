@@ -13,7 +13,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    min-height: 100dvh;
     color: #fff;
 
     /* 防止弹出层出现时页面抖动 */
@@ -28,6 +29,12 @@ body {
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+    display: flex;
+    flex-direction: column;
+    max-width: 95vw;
+    max-height: 95vh;
+    max-height: 95dvh;
 }
 
 /* =========================================
@@ -145,9 +152,11 @@ body.is-touch #mode-toggle {
 
 .grid-wrapper {
     max-width: 100%;
-    overflow-x: auto;
+    overflow: auto;
     border-radius: 4px;
     padding-bottom: 5px;
+    min-height: 0;
+    text-align: center;
 }
 
 .grid-wrapper::-webkit-scrollbar {
@@ -170,6 +179,7 @@ body.is-touch #mode-toggle {
     background: rgba(0, 0, 0, 0.2);
     padding: 2px;
     border-radius: 4px;
+    text-align: left;
 }
 
 .cell {
