@@ -69,6 +69,16 @@ body {
     transform: scale(0.95);
 }
 
+/* 模式切换按钮默认在 PC 端隐藏 */
+#mode-toggle {
+    display: none;
+}
+
+/* 只有通过 JS 检测为触摸屏时才显示 */
+body.is-touch #mode-toggle {
+    display: inline-block;
+}
+
 .mode-dig {
     background: rgba(46, 204, 113, 0.2);
     border-color: rgba(46, 204, 113, 0.5);
@@ -187,6 +197,15 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.05);
     background: rgba(0, 0, 0, 0.2);
     cursor: default;
+}
+
+/* 操作提示说明文字 */
+.instructions {
+    margin-top: 15px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    letter-spacing: 1px;
 }
 
 /* =========================================
