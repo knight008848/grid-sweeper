@@ -16,8 +16,8 @@ A minimalist, pure frontend implementation of the classic Minesweeper game, feat
 Simply clone the repository and open `index.html` in your favorite web browser.
 
 ```bash
-git clone https://github.com/knight008848/Grid-Sweeper.git
-cd Grid-Sweeper
+git clone https://github.com/knight008848/grid-sweeper.git
+cd grid-sweeper
 # Open index.html
 ```
 
