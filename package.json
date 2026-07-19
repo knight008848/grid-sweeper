@@ -1,6 +1,7 @@
 {
     "name": "grid-sweeper",
     "version": "1.0.0",
+    "type": "module",
     "description": "Wuxia styled minimal Minesweeper",
     "scripts": {
         "lint:js": "eslint script.js",

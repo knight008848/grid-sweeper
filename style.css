@@ -14,7 +14,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    color: #ffffff;
+    color: #fff;
+
     /* 防止弹出层出现时页面抖动 */
     overflow: hidden;
 }
@@ -100,10 +101,10 @@ body {
 }
 
 .counter {
-    color: #ff3366;
+    color: #f36;
     font-size: 22px;
     font-weight: 700;
-    font-family: 'Consolas', 'Courier New', monospace;
+    font-family: Consolas, 'Courier New', monospace;
     letter-spacing: 2px;
     min-width: 45px;
     text-align: right;
@@ -181,7 +182,7 @@ body {
     padding: 30px 50px;
     text-align: center;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: pop-in 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .modal-content h2 {
@@ -205,7 +206,7 @@ body {
     background: rgba(255, 255, 255, 0.2);
 }
 
-@keyframes popIn {
+@keyframes pop-in {
     0% {
         transform: scale(0.5);
         opacity: 0;
