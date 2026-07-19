@@ -80,7 +80,7 @@ function initGame() {
             cell.dataset.col = c;
             cell.addEventListener('click', handleLeftClick);
             cell.addEventListener('contextmenu', handleRightClick);
-            
+
             // 移动端触摸支持 (长按插旗)
             cell.addEventListener('touchstart', onTouchStart, { passive: false });
             cell.addEventListener('touchmove', onTouchMove, { passive: true });
@@ -141,7 +141,7 @@ function startTimer() {
 
 function handleLeftClick(e) {
     if (isGameOver) return;
-    
+
     // 如果处于插旗模式，左键点击等同于插旗
     if (currentMode === 'flag') {
         handleRightClick(e);
@@ -199,7 +199,7 @@ function onTouchStart(e) {
         handleRightClick(e);
         // 如果支持震动，给点物理反馈
         if (navigator.vibrate) navigator.vibrate(50);
-    }, 400); 
+    }, 400);
 }
 
 function onTouchMove() {
@@ -209,14 +209,14 @@ function onTouchMove() {
 function onTouchEnd(e) {
     clearTimeout(longPressTimer);
     if (isLongPress) {
-        e.preventDefault(); 
+        e.preventDefault();
     }
 }
 // ----------------------------------------------
 
 function handleRightClick(e) {
-    if (e.preventDefault) e.preventDefault(); 
-    if (isGameOver || isFirstClick) return; 
+    if (e.preventDefault) e.preventDefault();
+    if (isGameOver || isFirstClick) return;
 
     const cell = e.target;
     if (cell.classList.contains('revealed')) return;
@@ -281,7 +281,7 @@ function gameOver(win) {
 
 // 绑定各种重置按钮事件
 restartBtn.addEventListener('click', initGame);
-modalBtn.addEventListener('click', initGame); 
+modalBtn.addEventListener('click', initGame);
 
 difficultySelect.addEventListener('change', changeDifficulty);
 
