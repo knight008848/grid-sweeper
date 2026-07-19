@@ -69,6 +69,16 @@ body {
     transform: scale(0.95);
 }
 
+.mode-dig {
+    background: rgba(46, 204, 113, 0.2);
+    border-color: rgba(46, 204, 113, 0.5);
+}
+
+.mode-flag {
+    background: rgba(231, 76, 60, 0.2);
+    border-color: rgba(231, 76, 60, 0.5);
+}
+
 /* =========================================
    原有的仪表盘与网格样式
    ========================================= */
@@ -123,8 +133,29 @@ body {
     transform: scale(0.9);
 }
 
+.grid-wrapper {
+    max-width: 100%;
+    overflow-x: auto;
+    border-radius: 4px;
+    padding-bottom: 5px;
+}
+
+.grid-wrapper::-webkit-scrollbar {
+    height: 6px;
+}
+
+.grid-wrapper::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.grid-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
 .grid {
-    display: grid;
+    display: inline-grid;
     gap: 2px;
     background: rgba(0, 0, 0, 0.2);
     padding: 2px;
@@ -144,6 +175,8 @@ body {
     font-weight: bold;
     font-size: 16px;
     user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
     transition: background 0.1s;
 }
 

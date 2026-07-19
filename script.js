@@ -39,6 +39,11 @@ const mineCountElement = document.getElementById('mine-count');
 const restartBtn = document.getElementById('restart-btn');
 const timerElement = document.getElementById('timer');
 const difficultySelect = document.getElementById('difficulty');
+const modeToggleBtn = document.getElementById('mode-toggle');
+
+let currentMode = 'dig';
+let longPressTimer;
+let isLongPress = false;
 
 // 弹窗相关 DOM 元素
 const resultModal = document.getElementById('result-modal');
@@ -75,6 +80,12 @@ function initGame() {
             cell.dataset.col = c;
             cell.addEventListener('click', handleLeftClick);
             cell.addEventListener('contextmenu', handleRightClick);
+            
+            // 移动端触摸支持 (长按插旗)
+            cell.addEventListener('touchstart', onTouchStart, { passive: false });
+            cell.addEventListener('touchmove', onTouchMove, { passive: true });
+            cell.addEventListener('touchend', onTouchEnd, { passive: false });
+
             gridElement.appendChild(cell);
         }
         board.push(rowArray);
@@ -130,6 +141,13 @@ function startTimer() {
 
 function handleLeftClick(e) {
     if (isGameOver) return;
+    
+    // 如果处于插旗模式，左键点击等同于插旗
+    if (currentMode === 'flag') {
+        handleRightClick(e);
+        return;
+    }
+
     const r = parseInt(e.target.dataset.row);
     const c = parseInt(e.target.dataset.col);
 
@@ -172,9 +190,33 @@ function revealCell(r, c) {
     }
 }
 
+// ---------------- 移动端长按逻辑 ----------------
+function onTouchStart(e) {
+    if (isGameOver) return;
+    isLongPress = false;
+    longPressTimer = setTimeout(() => {
+        isLongPress = true;
+        handleRightClick(e);
+        // 如果支持震动，给点物理反馈
+        if (navigator.vibrate) navigator.vibrate(50);
+    }, 400); 
+}
+
+function onTouchMove() {
+    clearTimeout(longPressTimer);
+}
+
+function onTouchEnd(e) {
+    clearTimeout(longPressTimer);
+    if (isLongPress) {
+        e.preventDefault(); 
+    }
+}
+// ----------------------------------------------
+
 function handleRightClick(e) {
-    e.preventDefault();
-    if (isGameOver || isFirstClick) return;
+    if (e.preventDefault) e.preventDefault(); 
+    if (isGameOver || isFirstClick) return; 
 
     const cell = e.target;
     if (cell.classList.contains('revealed')) return;
@@ -239,9 +281,21 @@ function gameOver(win) {
 
 // 绑定各种重置按钮事件
 restartBtn.addEventListener('click', initGame);
-modalBtn.addEventListener('click', initGame); // 弹窗里的按钮也能重新开始
+modalBtn.addEventListener('click', initGame); 
 
 difficultySelect.addEventListener('change', changeDifficulty);
+
+modeToggleBtn.addEventListener('click', () => {
+    if (currentMode === 'dig') {
+        currentMode = 'flag';
+        modeToggleBtn.innerHTML = '🚩 插旗';
+        modeToggleBtn.classList.replace('mode-dig', 'mode-flag');
+    } else {
+        currentMode = 'dig';
+        modeToggleBtn.innerHTML = '💣 挖雷';
+        modeToggleBtn.classList.replace('mode-flag', 'mode-dig');
+    }
+});
 
 window.onload = () => {
     initGame();
