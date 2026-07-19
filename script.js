@@ -51,9 +51,9 @@ const instructions = document.getElementById('instructions');
 // 根据设备类型初始化界面
 if (isTouchDevice) {
     document.body.classList.add('is-touch');
-    instructions.innerText = '💡 提示：单指点击挖雷，长按方块插旗，或使用上方按钮切换模式';
+    instructions.innerHTML = '💡 提示：单指点击挖雷，长按方块插旗<br>或使用上方按钮切换模式';
 } else {
-    instructions.innerText = '💡 提示：鼠标左键挖雷，鼠标右键插旗';
+    instructions.innerHTML = '💡 提示：鼠标左键挖雷，鼠标右键插旗';
 }
 
 // 弹窗相关 DOM 元素
