@@ -1,0 +1,192 @@
+/* =========================================
+   全局与基础样式
+   ========================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(135deg, #1e1e2f 0%, #2a2a40 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #ffffff;
+    /* 防止弹出层出现时页面抖动 */
+    overflow: hidden; 
+}
+
+/* 游戏外壳 */
+.game-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================================
+   控制栏样式 (下拉框与按钮)
+   ========================================= */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.glass-select, .glass-btn {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.glass-select option {
+    background: #2a2a40;
+    color: white;
+}
+
+.glass-btn:hover, .glass-select:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.glass-btn:active {
+    transform: scale(0.95);
+}
+
+/* =========================================
+   原有的仪表盘与网格样式
+   ========================================= */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 2px inset rgba(255, 255, 255, 0.05);
+}
+
+.counter {
+    background: #111;
+    color: #ff003c;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-family: monospace;
+    letter-spacing: 2px;
+    min-width: 60px;
+    text-align: center;
+}
+
+.restart-btn {
+    font-size: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.restart-btn:active {
+    transform: scale(0.9);
+}
+
+.grid {
+    display: grid;
+    gap: 2px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 2px;
+    border-radius: 4px;
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px outset rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 16px;
+    user-select: none;
+    transition: background 0.1s;
+}
+
+.cell:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.cell.revealed {
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.2);
+    cursor: default;
+}
+
+/* =========================================
+   新增：弹出层 (Modal) 样式
+   ========================================= */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: none; /* 默认隐藏，通过JS改为 flex */
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal-content {
+    background: rgba(30, 30, 47, 0.85);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 30px 50px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-content h2 {
+    margin-bottom: 15px;
+    font-size: 32px;
+}
+
+.modal-content p {
+    margin-bottom: 25px;
+    font-size: 18px;
+    color: #ddd;
+}
+
+.modal-content .glass-btn {
+    font-size: 16px;
+    padding: 10px 24px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.modal-content .glass-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
